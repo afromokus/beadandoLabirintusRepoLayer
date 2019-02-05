@@ -20,7 +20,14 @@ namespace KirschJanosMarkSajatRepoLayer
 
         private void Form1_Load(object sender, EventArgs e)
         {
+        }
+
+        private void gombBetoltes_Click(object sender, EventArgs e)
+        {
             AdatbazisKezelo ak = new AdatbazisKezelo();
+
+            adatracsMegjelenito.DataSource = ak.getAccountokTabla();
+
         }
     }
 }
