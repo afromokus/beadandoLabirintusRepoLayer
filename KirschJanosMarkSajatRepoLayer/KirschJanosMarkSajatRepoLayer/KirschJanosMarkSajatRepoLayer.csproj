@@ -59,6 +59,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ModelAccount\Account.cs" />
+    <Compile Include="Repository\AccountRepo.cs" />
+    <Compile Include="Service\AccountService.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,5 +90,6 @@
   <ItemGroup>
     <Content Include="Adatbazis\MySql.Data.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

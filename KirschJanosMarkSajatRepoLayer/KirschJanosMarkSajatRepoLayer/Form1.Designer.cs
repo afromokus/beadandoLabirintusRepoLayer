@@ -41,12 +41,12 @@
             this.adatracsMegjelenito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.adatracsMegjelenito.Location = new System.Drawing.Point(30, 37);
             this.adatracsMegjelenito.Name = "adatracsMegjelenito";
-            this.adatracsMegjelenito.Size = new System.Drawing.Size(379, 357);
+            this.adatracsMegjelenito.Size = new System.Drawing.Size(741, 299);
             this.adatracsMegjelenito.TabIndex = 0;
             // 
             // gombBetoltes
             // 
-            this.gombBetoltes.Location = new System.Drawing.Point(581, 57);
+            this.gombBetoltes.Location = new System.Drawing.Point(924, 68);
             this.gombBetoltes.Name = "gombBetoltes";
             this.gombBetoltes.Size = new System.Drawing.Size(75, 23);
             this.gombBetoltes.TabIndex = 1;
@@ -56,7 +56,7 @@
             // 
             // gombUj
             // 
-            this.gombUj.Location = new System.Drawing.Point(581, 109);
+            this.gombUj.Location = new System.Drawing.Point(924, 120);
             this.gombUj.Name = "gombUj";
             this.gombUj.Size = new System.Drawing.Size(75, 23);
             this.gombUj.TabIndex = 1;
@@ -65,7 +65,7 @@
             // 
             // gombModosit
             // 
-            this.gombModosit.Location = new System.Drawing.Point(581, 162);
+            this.gombModosit.Location = new System.Drawing.Point(924, 173);
             this.gombModosit.Name = "gombModosit";
             this.gombModosit.Size = new System.Drawing.Size(75, 23);
             this.gombModosit.TabIndex = 1;
@@ -74,7 +74,7 @@
             // 
             // gombTorles
             // 
-            this.gombTorles.Location = new System.Drawing.Point(581, 217);
+            this.gombTorles.Location = new System.Drawing.Point(924, 228);
             this.gombTorles.Name = "gombTorles";
             this.gombTorles.Size = new System.Drawing.Size(75, 23);
             this.gombTorles.TabIndex = 1;
@@ -85,7 +85,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1110, 418);
             this.Controls.Add(this.gombTorles);
             this.Controls.Add(this.gombModosit);
             this.Controls.Add(this.gombUj);

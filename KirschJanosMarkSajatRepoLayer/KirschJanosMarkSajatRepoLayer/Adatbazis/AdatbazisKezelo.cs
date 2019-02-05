@@ -12,7 +12,6 @@ namespace KirschJanosMarkSajatRepoLayer.Adatbazis
     {
         MySqlConnection csatlakozas;
         MySqlCommand parancs;
-        DataTable lab3dTabla;
 
         DataTable accountokTabla;
         
@@ -26,13 +25,9 @@ namespace KirschJanosMarkSajatRepoLayer.Adatbazis
             csatlakozas.ConnectionString = "SERVER = 127.0.0.1; DATABASE = lab3d; Uid = root; pwd = ; port = 3306";
             csatlakozas.Open();
 
-            accountokTabla = getToDatatable("accountok");
-
-            csatlakozas.Close();
-
         }
 
-        private DataTable getToDatatable(string tablaNev)
+        internal DataTable lekerAdatTabla(string tablaNev)
         {
             DataTable lab3dTabla = new DataTable();
             MySqlDataAdapter adatIlleszto;
@@ -45,9 +40,9 @@ namespace KirschJanosMarkSajatRepoLayer.Adatbazis
             return lab3dTabla;
         }
 
-        public DataTable getAccountokTabla()
+        public void bezaras()
         {
-            return accountokTabla;
+            csatlakozas.Close();
         }
 
     }
