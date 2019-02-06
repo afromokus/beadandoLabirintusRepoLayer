@@ -11,16 +11,24 @@ namespace KirschJanosMarkSajatRepoLayer.Adatbazis
     class AdatbazisKezelo
     {
         MySqlConnection csatlakozas;
-        MySqlCommand parancs;        
+        MySqlCommand parancs;  
 
 
         public AdatbazisKezelo()
         {
             csatlakozas = new MySqlConnection();
-            parancs = new MySqlCommand("");            
+            parancs = new MySqlCommand("");
 
             csatlakozas.ConnectionString = "SERVER = 127.0.0.1; DATABASE = lab3d; Uid = root; pwd = ; port = 3306";
-            csatlakozas.Open();
+            try
+            {
+                csatlakozas.Open();
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("Indítsa el a xamppot!");
+                Environment.Exit(1);
+            }
 
         }
 
@@ -29,10 +37,18 @@ namespace KirschJanosMarkSajatRepoLayer.Adatbazis
             DataTable lab3dTabla = new DataTable();
             MySqlDataAdapter adatIlleszto;
 
-            parancs = new MySqlCommand("SELECT * FROM " + tablaNev);
-            adatIlleszto = new MySqlDataAdapter(parancs);
-            adatIlleszto.SelectCommand.Connection = csatlakozas;
-            adatIlleszto.Fill(lab3dTabla);
+            try
+            {
+
+                parancs = new MySqlCommand("SELECT * FROM " + tablaNev);
+                adatIlleszto = new MySqlDataAdapter(parancs);
+                adatIlleszto.SelectCommand.Connection = csatlakozas;
+                adatIlleszto.Fill(lab3dTabla);
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("Az adatbázisban nem található " + tablaNev + " tábla!");
+            }
 
             return lab3dTabla;
         }
