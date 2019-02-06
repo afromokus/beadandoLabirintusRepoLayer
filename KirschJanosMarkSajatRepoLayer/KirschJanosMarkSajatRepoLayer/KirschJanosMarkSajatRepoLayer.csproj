@@ -88,6 +88,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Adatbazis\lab3d.sql" />
     <Content Include="Adatbazis\MySql.Data.dll" />
   </ItemGroup>
   <ItemGroup />
