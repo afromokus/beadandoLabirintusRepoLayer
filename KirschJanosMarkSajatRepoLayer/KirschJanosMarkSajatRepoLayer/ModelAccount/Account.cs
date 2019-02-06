@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KirschJanosMarkSajatRepoLayer.Repository
+namespace KirschJanosMarkSajatRepoLayer.ModelAccount
 {
     class Account
     {

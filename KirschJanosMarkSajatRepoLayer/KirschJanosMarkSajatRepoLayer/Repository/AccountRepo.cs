@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KirschJanosMarkSajatRepoLayer.Adatbazis;
+using KirschJanosMarkSajatRepoLayer.ModelAccount;
 using System.Data;
 
 namespace KirschJanosMarkSajatRepoLayer.Repository
@@ -32,7 +33,45 @@ namespace KirschJanosMarkSajatRepoLayer.Repository
 
         }
 
-        internal DataTable getTabla(string tablaNev)
+        internal DataTable betoltTabla()
+        {
+            DataTable accountTabla = new DataTable();
+
+            accountTabla.Columns.Add("Azonosító", typeof(int));
+            accountTabla.Columns.Add("Felhasználói név", typeof(string));
+            accountTabla.Columns.Add("Jelszó", typeof(string));
+            accountTabla.Columns.Add("E-mail cím", typeof(string));
+            accountTabla.Columns.Add("Jog", typeof(string));
+            accountTabla.Columns.Add("Szint", typeof(int));
+            accountTabla.Columns.Add("Régió azonosító", typeof(int));
+
+            foreach (Account a in accountok)
+            {
+                accountTabla.Rows.Add(a.Az, a.FelhNev, a.Jelszo, a.EmailCim, a.Jog, a.Szint, a.Regio_az);
+            }
+
+            return accountTabla;
+        }
+
+        internal void hozzaadUjAccount(Account account)
+        {
+            accountok.Add(account);
+        }
+
+        internal bool marLetezikFelhNev(Account account)
+        {
+            foreach (Account a in accountok)
+            {
+                if (a.FelhNev == account.FelhNev)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        internal DataTable lekerTablatAdatbazisbol(string tablaNev)
         {
             AdatbazisKezelo ak = new AdatbazisKezelo();
 

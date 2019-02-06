@@ -1,6 +1,6 @@
 ﻿namespace KirschJanosMarkSajatRepoLayer
 {
-    partial class Form1
+    partial class FormAccountok
     {
         /// <summary>
         /// Required designer variable.
@@ -62,6 +62,7 @@
             this.gombUj.TabIndex = 1;
             this.gombUj.Text = "Új";
             this.gombUj.UseVisualStyleBackColor = true;
+            this.gombUj.Click += new System.EventHandler(this.gombUj_Click);
             // 
             // gombModosit
             // 
@@ -81,7 +82,7 @@
             this.gombTorles.Text = "Törlés";
             this.gombTorles.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // FormAccountok
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -91,7 +92,7 @@
             this.Controls.Add(this.gombUj);
             this.Controls.Add(this.gombBetoltes);
             this.Controls.Add(this.adatracsMegjelenito);
-            this.Name = "Form1";
+            this.Name = "FormAccountok";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.adatracsMegjelenito)).EndInit();

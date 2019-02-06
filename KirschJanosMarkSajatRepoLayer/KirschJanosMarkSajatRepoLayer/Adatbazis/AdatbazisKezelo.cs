@@ -11,8 +11,7 @@ namespace KirschJanosMarkSajatRepoLayer.Adatbazis
     class AdatbazisKezelo
     {
         MySqlConnection csatlakozas;
-        MySqlCommand parancs;
-        
+        MySqlCommand parancs;  
 
 
         public AdatbazisKezelo()
