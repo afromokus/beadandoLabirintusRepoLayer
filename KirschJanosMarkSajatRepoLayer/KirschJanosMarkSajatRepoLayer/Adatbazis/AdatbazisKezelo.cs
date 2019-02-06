@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
+using KirschJanosMarkSajatRepoLayer.ModelAccount;
 
 namespace KirschJanosMarkSajatRepoLayer.Adatbazis
 {
@@ -26,7 +27,7 @@ namespace KirschJanosMarkSajatRepoLayer.Adatbazis
             }
             catch
             {
-                System.Windows.Forms.MessageBox.Show("Indítsa el a xamppot!");
+                System.Windows.Forms.MessageBox.Show("Indítsa el a xamppot (MYSQL szervert nem sikerült elérni)!");
                 Environment.Exit(1);
             }
 
@@ -56,6 +57,21 @@ namespace KirschJanosMarkSajatRepoLayer.Adatbazis
         public void bezaras()
         {
             csatlakozas.Close();
+        }
+
+        public void hozzaadAdatbazishoz(Account account)
+        {
+                parancsAdatbazisVegrehajt("INSERT INTO `accountok` " +
+                    "(`az`, `felhNev`, `jelszo`, `email_cim`, `jog`, `szint`, `regio_az`) " +
+                    "VALUES ('" + account.Az + "', '" + account.FelhNev + "', '" + account.Jelszo + "', '" +
+                    account.EmailCim + "', '" + account.Jog + "', '" + account.Szint + "', '" + account.Regio_az + "')");
+        }
+
+        public void parancsAdatbazisVegrehajt(string sqlSzoveg)
+        {
+            parancs.Connection = csatlakozas;   
+            parancs.CommandText = sqlSzoveg;
+            parancs.ExecuteNonQuery();
         }
 
     }

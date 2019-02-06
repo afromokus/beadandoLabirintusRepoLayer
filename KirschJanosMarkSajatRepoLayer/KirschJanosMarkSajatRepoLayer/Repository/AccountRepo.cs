@@ -56,6 +56,12 @@ namespace KirschJanosMarkSajatRepoLayer.Repository
         internal void hozzaadUjAccount(Account account)
         {
             accountok.Add(account);
+            AdatbazisKezelo ak = new AdatbazisKezelo();
+
+            ak.hozzaadAdatbazishoz(account);
+
+            ak.bezaras();
+            
         }
 
         internal bool marLetezikFelhNev(Account account)
