@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using KirschJanosMarkSajatRepoLayer.Adatbazis;
 using KirschJanosMarkSajatRepoLayer.Repository;
+using KirschJanosMarkSajatRepoLayer.ModelAccount;
 using System.Data;
 
 namespace KirschJanosMarkSajatRepoLayer.Service
@@ -20,8 +21,24 @@ namespace KirschJanosMarkSajatRepoLayer.Service
 
         public DataTable betoltAdattabla(string tablaNev)
         {
-            return ar.getTabla(tablaNev);
+            return ar.lekerTablatAdatbazisbol(tablaNev);
         }
 
+        internal void hozzaadasUjAccount(Account account)
+        {
+            if (!ar.marLetezikFelhNev(account))
+            {
+                ar.hozzaadUjAccount(account);
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show(account.FelhNev + " felhasználónév már használatban van!");
+            }
+        }
+
+        internal DataTable lekerRepoTabla()
+        {
+            return ar.betoltTabla();
+        }
     }
 }

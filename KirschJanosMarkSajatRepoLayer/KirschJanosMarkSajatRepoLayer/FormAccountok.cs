@@ -9,14 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using KirschJanosMarkSajatRepoLayer.Adatbazis;
 using KirschJanosMarkSajatRepoLayer.Service;
+using KirschJanosMarkSajatRepoLayer.ModelAccount;
 
 namespace KirschJanosMarkSajatRepoLayer
 {
-    public partial class Form1 : Form
+    public partial class FormAccountok : Form
     {
         AccountService accountService;
 
-        public Form1()
+        public FormAccountok()
         {
             InitializeComponent();
             accountService = new AccountService();
@@ -29,6 +30,13 @@ namespace KirschJanosMarkSajatRepoLayer
         private void gombBetoltes_Click(object sender, EventArgs e)
         {
             adatracsMegjelenito.DataSource = accountService.betoltAdattabla("accountok");
+        }
+
+        private void gombUj_Click(object sender, EventArgs e)
+        {
+            Account account = new Account(4, "ujFelhNev", "ujJelszo", "ujEmail", "jog", 1, 3);
+            accountService.hozzaadasUjAccount(account);
+            adatracsMegjelenito.DataSource = accountService.lekerRepoTabla();
         }
     }
 }
