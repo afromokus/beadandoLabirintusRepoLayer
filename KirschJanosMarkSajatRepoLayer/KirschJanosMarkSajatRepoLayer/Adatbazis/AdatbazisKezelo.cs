@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
-using KirschJanosMarkSajatRepoLayer.ModelAccount;
+using KirschJanosMarkSajatRepoLayer.Model;
 
 namespace KirschJanosMarkSajatRepoLayer.Adatbazis
 {
@@ -74,5 +74,15 @@ namespace KirschJanosMarkSajatRepoLayer.Adatbazis
             parancs.ExecuteNonQuery();
         }
 
+        internal void felulirAccount(Account account, int index)
+        {
+            parancsAdatbazisVegrehajt("UPDATE `accountok` SET `az` = '" + account.Az + "', `felhNev` = '" + account.FelhNev + "', " +
+                "`jelszo` = '" + account.Jelszo + "', `email_cim` = '" + account.EmailCim + "', `jog` = '" + account.Jog + "', `szint` = '" + account.Szint + "'," +
+                " `regio_az` = '" + account.Regio_az + "' WHERE `accountok`.`az` = 4");
+            if (account.Az != index)
+            {
+                parancsAdatbazisVegrehajt("DELETE FROM `accountok` WHERE `accountok`.`az` = " + (index + 1) + ";");
+            }
+        }
     }
 }

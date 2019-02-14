@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KirschJanosMarkSajatRepoLayer.Adatbazis;
-using KirschJanosMarkSajatRepoLayer.ModelAccount;
+using KirschJanosMarkSajatRepoLayer.Model;
 using System.Data;
 
 namespace KirschJanosMarkSajatRepoLayer.Repository
@@ -12,6 +12,11 @@ namespace KirschJanosMarkSajatRepoLayer.Repository
     class AccountRepo
     {
         List<Account> accountok;
+
+        public Account getAccount(int indexAccount)
+        {
+            return accountok[indexAccount];
+        }
 
         public AccountRepo()
         {
@@ -51,6 +56,21 @@ namespace KirschJanosMarkSajatRepoLayer.Repository
             }
 
             return accountTabla;
+        }
+
+        internal void torolFelhasznalo(int index)
+        {
+            AdatbazisKezelo ak = new AdatbazisKezelo();
+            accountok.RemoveAt(index);
+            ak.bezaras();
+        }
+
+        internal void felulirAccount(Account account, int index)
+        {
+            AdatbazisKezelo ak = new AdatbazisKezelo();
+            accountok[index] = account;
+            ak.felulirAccount(account, index);
+            ak.bezaras();
         }
 
         internal void hozzaadUjAccount(Account account)

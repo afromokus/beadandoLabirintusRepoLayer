@@ -72,6 +72,7 @@
             this.gombModosit.TabIndex = 1;
             this.gombModosit.Text = "Módosít";
             this.gombModosit.UseVisualStyleBackColor = true;
+            this.gombModosit.Click += new System.EventHandler(this.gombModosit_Click);
             // 
             // gombTorles
             // 
@@ -81,6 +82,7 @@
             this.gombTorles.TabIndex = 1;
             this.gombTorles.Text = "Törlés";
             this.gombTorles.UseVisualStyleBackColor = true;
+            this.gombTorles.Click += new System.EventHandler(this.gombTorles_Click);
             // 
             // FormAccountok
             // 
