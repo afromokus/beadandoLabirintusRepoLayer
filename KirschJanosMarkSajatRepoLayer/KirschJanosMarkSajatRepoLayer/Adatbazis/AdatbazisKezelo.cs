@@ -79,7 +79,7 @@ namespace KirschJanosMarkSajatRepoLayer.Adatbazis
             parancsAdatbazisVegrehajt("UPDATE `accountok` SET `az` = '" + account.Az + "', `felhNev` = '" + account.FelhNev + "', " +
                 "`jelszo` = '" + account.Jelszo + "', `email_cim` = '" + account.EmailCim + "', `jog` = '" + account.Jog + "', `szint` = '" + account.Szint + "'," +
                 " `regio_az` = '" + account.Regio_az + "' WHERE `accountok`.`az` = 4");
-            if (account.Az != index)
+            if (account.Az < index)
             {
                 parancsAdatbazisVegrehajt("DELETE FROM `accountok` WHERE `accountok`.`az` = " + (index + 1) + ";");
             }
