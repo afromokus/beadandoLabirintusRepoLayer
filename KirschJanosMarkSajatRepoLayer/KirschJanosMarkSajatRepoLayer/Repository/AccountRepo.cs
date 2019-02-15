@@ -13,6 +13,8 @@ namespace KirschJanosMarkSajatRepoLayer.Repository
     {
         List<Account> accountok;
 
+        internal List<Account> Accountok { get => accountok; set => accountok = value; }
+
         public Account getAccount(int indexAccount)
         {
             return accountok[indexAccount];
@@ -58,10 +60,20 @@ namespace KirschJanosMarkSajatRepoLayer.Repository
             return accountTabla;
         }
 
+        internal void modositAccount(Account ujAccount, int index)
+        {
+            AdatbazisKezelo ak = new AdatbazisKezelo();
+            accountok[index] = ujAccount;
+            //ak.frissitAccount(ujAccount, index + 1);
+            ak.feltoltRepoAdatbazisba(accountok);
+            ak.bezaras();
+        }
+
         internal void torolFelhasznalo(int index)
         {
             AdatbazisKezelo ak = new AdatbazisKezelo();
             accountok.RemoveAt(index);
+            ak.feltoltRepoAdatbazisba(accountok);
             ak.bezaras();
         }
 
@@ -69,7 +81,6 @@ namespace KirschJanosMarkSajatRepoLayer.Repository
         {
             AdatbazisKezelo ak = new AdatbazisKezelo();
             accountok[index] = account;
-            ak.felulirAccount(account, index);
             ak.bezaras();
         }
 

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
 using KirschJanosMarkSajatRepoLayer.Model;
+using KirschJanosMarkSajatRepoLayer.Repository;
 
 namespace KirschJanosMarkSajatRepoLayer.Adatbazis
 {
@@ -74,15 +75,37 @@ namespace KirschJanosMarkSajatRepoLayer.Adatbazis
             parancs.ExecuteNonQuery();
         }
 
-        internal void felulirAccount(Account account, int index)
+        internal void frissitAccount(Account a, int az)
         {
-            parancsAdatbazisVegrehajt("UPDATE `accountok` SET `az` = '" + account.Az + "', `felhNev` = '" + account.FelhNev + "', " +
-                "`jelszo` = '" + account.Jelszo + "', `email_cim` = '" + account.EmailCim + "', `jog` = '" + account.Jog + "', `szint` = '" + account.Szint + "'," +
-                " `regio_az` = '" + account.Regio_az + "' WHERE `accountok`.`az` = 4");
-            if (account.Az < index)
-            {
-                parancsAdatbazisVegrehajt("DELETE FROM `accountok` WHERE `accountok`.`az` = " + (index + 1) + ";");
+             parancsAdatbazisVegrehajt("UPDATE accountok " +
+                 "SET az = " + a.Az + ", felhNev = " + a.FelhNev + ", jelszo = " + a.Jelszo + ", email_cim = " + 
+                 ", jog = " + a.Jog + ", szint = " + a.Szint + ", regio_az = " + a. Regio_az +
+                 "WHERE az = " + az +"; ");
+            System.Windows.Forms.MessageBox.Show(az + "");
+        }
+
+        public void feltoltRepoAdatbazisba(List<Account> accountok)
+        {
+            int i = 0;
+            parancsAdatbazisVegrehajt("DROP TABLE accountok;" +
+                "CREATE TABLE `accountok` (  `az` int(11) NOT NULL," +
+                "  `felhNev` varchar(30) COLLATE utf8_hungarian_ci DEFAULT NULL," +
+                "  `jelszo` varchar(28) COLLATE utf8_hungarian_ci DEFAULT NULL," +
+                "  `email_cim` varchar(50) COLLATE utf8_hungarian_ci DEFAULT NULL," +
+                "  `jog` varchar(20) COLLATE utf8_hungarian_ci DEFAULT NULL," +
+                "  `szint` int(11) NOT NULL," +
+                "  `regio_az` smallint(6) DEFAULT NULL" +
+                ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;");
+            
+            for(i = 0; i < accountok.Count; i++)
+            {                
+                parancsAdatbazisVegrehajt(
+                "INSERT INTO `accountok` (`az`, `felhNev`, `jelszo`, `email_cim`, `jog`, `szint`, `regio_az`) VALUES" +
+                "(" + accountok[i].Az + ", '" + accountok[i].FelhNev + "', ' " + accountok[i].Jelszo + "', '" + 
+                accountok[i].EmailCim + "', '" + accountok[i].FelhNev + "', " +
+                accountok[i].Szint + ", " + accountok[i].Regio_az + ")");
             }
         }
+
     }
 }

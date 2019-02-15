@@ -90,6 +90,7 @@ namespace KirschJanosMarkSajatRepoLayer.Model
             this.buttonMegse.TabIndex = 1;
             this.buttonMegse.Text = "Mégse";
             this.buttonMegse.UseVisualStyleBackColor = true;
+            this.buttonMegse.Click += new System.EventHandler(this.buttonMegse_Click);
             // 
             // textBoxAz
             // 
@@ -233,6 +234,11 @@ namespace KirschJanosMarkSajatRepoLayer.Model
         private void ModositoAblak_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonMegse_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
         }
     }
 }

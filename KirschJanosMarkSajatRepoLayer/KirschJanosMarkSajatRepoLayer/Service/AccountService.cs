@@ -47,11 +47,11 @@ namespace KirschJanosMarkSajatRepoLayer.Service
 
             if (ma.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (ma.mindenAdatErvenyes())
-                {
-                    ar.felulirAccount(new Account(Convert.ToInt32(ma.TextBoxAz.Text),ma.TextBoxFelhNev.Text, ma.TextBoxJelszo.Text, ma.TextBoxEmail.Text, ma.TextBoxJog.Text,
-                        Convert.ToInt32(ma.TextBoxSzint.Text), Convert.ToInt32(ma.TextBoxRegioAz.Text)), index);
-                }
+                Account ujAccount = new Account(ar.getAccount(index).Az, ma.TextBoxFelhNev.Text, ma.TextBoxJelszo.Text,
+                    ma.TextBoxEmail.Text,ma.TextBoxJog.Text, Convert.ToInt32(ma.TextBoxSzint.Text),
+                    Convert.ToInt32(ma.TextBoxRegioAz.Text));
+
+                ar.modositAccount(ujAccount, index);
             }
         }
 
